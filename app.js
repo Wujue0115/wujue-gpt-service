@@ -29,8 +29,6 @@ app.post("/openai/chat", async (req, res) => {
   });
 
   if (response.ok) {
-    // 設定 Response 的 Content-Type
-    res.set("Content-Type", "application/octet-stream");
     // 回傳 Readablestream
     response.body.pipe(res);
   } else {
