@@ -18,9 +18,8 @@ app.get('/', (req, res) => {
 })
 
 app.post("/openai/chat", async (req, res) => {
-  console.log("access user api...");
-  console.log(req.body);
-
+  console.log("fetch chat api...");
+  
   const response = await fetch(CHAT_API_URL, {
     method: "POST",
       headers: {
