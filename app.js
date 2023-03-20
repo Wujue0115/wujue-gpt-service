@@ -7,7 +7,6 @@ dotenv.config()
 
 const CHAT_API_URL = "https://api.openai.com/v1/chat/completions";
 const app = express();
-const port = 3000;
 
 app.use(cors())
 app.use(express.json());
@@ -19,7 +18,7 @@ app.get('/', (req, res) => {
 
 app.post("/openai/chat", async (req, res) => {
   console.log("fetch chat api...");
-  
+
   const response = await fetch(CHAT_API_URL, {
     method: "POST",
       headers: {
@@ -39,6 +38,7 @@ app.post("/openai/chat", async (req, res) => {
   }
 })
 
-app.listen(process.env.PORT || port, () => {
-  console.log(`Example app listening on port ${port}`)
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`)
 });
